@@ -11,5 +11,47 @@
 </head>
 <body>
     <header id="mainHeader"><img src="assets/refund-logo.svg" alt=""> <h1>refund</h1></header>
+
+    <main id="mainContainer">
+
+        <div id="refundContainer">
+            <header>
+                <h1>Solicitação de Reembolso</h1>
+                <p>Informe os dados da despesa para solicitar reembolso. <br> A despesa será analisada e reembolsada em até 30 dias.</p>
+            </header>
+
+            <form action="#">
+                <div class="optionContainer">
+                    <label for="expense-title">Título da Despesa</label>
+                    <input type="text" id="expense-title" name="expense-title" required>
+                </div>
+
+                <div id="lowFieldContainer">
+                    <div class="optionContainer">
+                        <label for="expense-category">Categoria</label>
+                        <select id="expense-category" name="expense-category" required>
+                            <option value="">Selecione</option>
+                            <option value="alimentation">Alimentação</option>
+                            <option value="hotel">Hospedagem</option>
+                            <option value="alimentation">Alimentação</option>
+                            <option value="transport">Transporte</option>
+                            <option value="services">Serviços</option>
+                            <option value="other">Outros</option>
+                        </select>
+                    </div>
+
+                    <div class="optionContainer">
+                        <label for="expense-value">Valor</label>
+                        <input type="number" name="expenseValue" id="expense-value" required>
+                    </div>
+
+                </div>
+
+                <input type="submit" value="Adicionar despesa">
+            </form>
+        </div>
+
+        <div id="refund-calls"></div>
+    </main>
 </body>
 </html>

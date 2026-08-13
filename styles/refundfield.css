@@ -1,0 +1,57 @@
+#mainContainer{
+    display: flex;
+    gap: 1rem;
+    margin-block: 3rem;
+}
+
+.optionContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#lowFieldContainer{
+    display: flex;
+    gap: 1rem;
+}
+
+#refundContainer{
+    background-color: var(--gray-500);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    & header{
+        & h1{
+            font: var(--heading-lg);
+            color: var(--gray-100);
+            padding-bottom: .75rem;
+        }
+        & p{
+            font: var(--body-md);
+            color: var(--gray-200);
+            padding-bottom: 2.5rem;
+        }
+    }
+
+    & label{
+        color: var(--gray-200);
+        font: var(--body-sm);
+        padding-block: .5rem;
+        text-transform: uppercase;
+        
+    }
+
+    & input, select{
+        width: 100%;
+        height: 2.5rem;
+        border-radius: .5rem;
+        border: 1px solid var(--gray-200);
+    }
+
+    & input[type="submit"]{
+        margin-top: 2rem;
+        border: none;
+        color: var(--white);
+        background-color: var(--green-100);
+        font: var(--heading-sm);
+    }
+}
