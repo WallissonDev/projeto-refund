@@ -1,0 +1,8 @@
+#mainHeader{
+    display: flex;
+    
+    gap: 1rem;
+    color: var(--green-100);
+    font: var(--heading-md);
+
+}
