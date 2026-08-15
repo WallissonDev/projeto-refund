@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Refund</title>
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -47,11 +47,43 @@
 
                 </div>
 
-                <input type="submit" value="Adicionar despesa">
+                <input type="submit" value="Adicionar despesa" id="expense-submit">
             </form>
         </div>
 
-        <div id="refund-calls"></div>
+        <div id="refund-calls">
+            <header>
+                <h2>Minhas Solicitações</h2>
+                <small>Despesas</small>
+                <p>R$ X</p>
+            </header>
+            <div></div>
+
+            <div id="expense-items-container">
+
+                <li id="item">
+                    <img src="assets/lunch.svg" alt="">
+                    <div>
+                        <h3>Mensagem</h3>
+                        <p>Alimentação</p>
+                    </div>
+                    <p>R$ 34,78</p>
+                    <img src="assets/remove-button.svg" alt="">
+                </li>
+                
+                <li id="item">
+                    <img src="assets/hotel.svg" alt="">
+                    <div>
+                        <h3>Mensagem</h3>
+                        <p>Hospedagem</p>
+                    </div>
+                    <p>R$ 34,78</p>
+                    <img src="assets/remove-button.svg" alt="">
+                </li>
+
+            </div>
+        </div>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,46 @@
+#refund-calls{
+    background-color: var(--gray-500);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    min-width: 600px;
+
+    font-family: var(--ff-base);
+
+    & header{
+        display: flex;
+        align-items: center;
+
+        & h2{
+            font: var(--body-lg);
+            color: var(--gray-100);
+            padding-right: 1rem;
+        }
+
+        & small{
+            margin-right: auto;
+            font: var(--label);
+            color: var(--gray-200);
+            
+        }
+    }
+}
+
+#expense-items-container{
+    & #item{
+      list-style-type: none;
+      margin-block: 1rem;
+
+      display: flex;
+      align-items: center;
+      
+     
+      & img:first-child{
+        padding-right: 1rem;                                                                                                                                                                            
+      }
+
+      & div{
+        margin-right: auto;
+      }
+    }
+
+}
