@@ -41,6 +41,10 @@
       & div{
         margin-right: auto;
       }
+
+      & img:last-child{
+        cursor: pointer;
+      }
     }
 
 }
