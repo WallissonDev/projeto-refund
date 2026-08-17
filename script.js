@@ -3,6 +3,12 @@ const expenseCategorySelect = document.getElementById('expense-category');
 const expenseValueInput = document.getElementById('expense-value');
 const expenseSubmitButton = document.getElementById('expense-submit');
 const expenseContainer = document.getElementById('expense-items-container');
+const totalValue = document.getElementsByClassName("totalValue")
+
+totalValue[0].textContent = calculateTotalExpense().toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+        })
 
 expenseContainer.addEventListener('click', (event) => {
     const clickedButton = event.target.closest('.remove-button')
@@ -13,16 +19,32 @@ expenseContainer.addEventListener('click', (event) => {
 
     if (itemToRemove) {
         itemToRemove.remove()
+        totalValue[0].textContent = calculateTotalExpense().toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+        })
     }
 })
 
 expenseSubmitButton.addEventListener('click', (event) => {
     event.preventDefault()
     const itemLi = createExpenseItem(expenseTitleInput.value, expenseCategorySelect.value, parseFloat(expenseValueInput.value));
-    console.log(expenseTitleInput.value, expenseCategorySelect.value, parseFloat(expenseValueInput.value))
     expenseContainer.appendChild(itemLi)
-    
+    totalValue[0].textContent = calculateTotalExpense().toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+        })
 })
+
+function calculateTotalExpense(){
+    let sum = 0
+    const expenseItems = expenseContainer.querySelectorAll('.expenseValue');
+    expenseItems.forEach(item => {
+        sum += Number(item.outerText.replace(",","."));
+    });
+    console.log(sum)
+    return sum
+}
 
 function createExpenseItem(title, category, value) {
     const itemLi = document.createElement('li')
@@ -34,23 +56,32 @@ function createExpenseItem(title, category, value) {
     const descritionCategory = document.createElement('p')
 
     const itemValue = document.createElement('p')
+    const currencyType = document.createElement('p')
     const itemRemoveButton = document.createElement('img')
+    
+    currencyType.innerText = "R$  "
 
+    currencyType.appendChild(itemValue)
     descriptionContainer.appendChild(mainDescription)
     descriptionContainer.appendChild(descritionCategory)
 
     itemLi.appendChild(itemPicture)
     itemLi.appendChild(descriptionContainer)
-    itemLi.appendChild(itemValue)
+    itemLi.appendChild(currencyType)
     itemLi.appendChild(itemRemoveButton)
 
+    currencyType.style.display = "flex"
+    currencyType.style.gap = "0.5rem"
     itemLi.setAttribute("id", "item")
     itemPicture.setAttribute("src", `./assets/${category}.svg`)
     mainDescription.textContent = title
     descritionCategory.textContent = category
-    itemValue.textContent = `R$ ${value.toFixed(2).replace('.', ',')}`
     itemRemoveButton.setAttribute("src", "./assets/remove-button.svg")
     itemRemoveButton.setAttribute("class", "remove-button")
+    itemValue.setAttribute("class", "expenseValue")
+    itemValue.innerHTML = value.toFixed(2).replace(".", ",")
 
     return itemLi
 }
+
+console.dir(expenseContainer)
