@@ -57,6 +57,18 @@ expenseSubmitButton.addEventListener('click', (event) => {
         })
 
     numberOfExpenses.textContent = `Despesas: ${expenseContainer.querySelectorAll('li').length}`
+
+    expenseValueInput.value = ""
+    expenseTitleInput.value = ""
+    
+})
+
+expenseValueInput.addEventListener("input", (event) => {
+    if (!Number(event.target.value)){
+        alert("Somente numero!")
+        event.target.value = ""
+    }
+
 })
 
 function calculateTotalExpense(){
