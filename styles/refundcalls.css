@@ -47,6 +47,11 @@
 
       & img:last-child{
         cursor: pointer;
+        margin-left: 0.35rem;
+        &:hover{
+          background-color: var(--gray-400);
+          border-radius: 1rem;
+        }
       }
     }
 
