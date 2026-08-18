@@ -3,6 +3,9 @@
     border-radius: 1rem;
     padding: 2.5rem;
     min-width: 600px;
+    height: 462px;
+    overflow: auto;
+
 
     font-family: var(--ff-base);
 
@@ -47,4 +50,14 @@
       }
     }
 
+}
+
+@media (max-width: 768px) {
+    
+    #refund-calls{
+        max-width: 90vw;
+        min-width: 90vw;
+        height: 100%;
+    }
+    
 }

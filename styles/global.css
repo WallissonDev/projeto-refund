@@ -2,12 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+   
 }
 
 body{
     background-color: var(--gray-300);
     margin-inline: 15rem;
     margin-top: 3rem;
+    overflow-x: hidden;
 }
 
 :root{
@@ -33,4 +35,31 @@ body{
     --body-md: normal 0.875rem/18px var(--ff-base);
     --body-sm: normal 0.75rem/16px var(--ff-base);
     --label: normal 0.65rem/14px var(--ff-base);
+}
+
+@media (max-width: 768px) {
+    
+    :root{
+
+    --ff-base: "Open Sans", sans-serif;
+    --heading-lg: bold 1.22rem/24px var(--ff-base);
+    --heading-md: bold .75rem/20px var(--ff-base);
+    --heading-sm: bold 0.5rem/18px var(--ff-base);
+
+    --subheading: 600 0.875rem/18px var(--ff-base);
+    --body-lg: normal 0.75rem/20px var(--ff-base);
+    --body-md: normal 0.75rem/18px var(--ff-base);
+    --body-sm: normal 0.5rem/16px var(--ff-base);
+    --label: normal 0.5rem/14px var(--ff-base);
+    }
+
+    #mainContainer{
+        flex-direction: column;
+        margin-inline: 1rem;
+    }
+
+    body{
+        margin-inline: 0rem;
+        margin-top: 3rem;
+    }   
 }
