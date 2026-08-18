@@ -4,6 +4,7 @@ const expenseValueInput = document.getElementById('expense-value');
 const expenseSubmitButton = document.getElementById('expense-submit');
 const expenseContainer = document.getElementById('expense-items-container');
 const totalValue = document.getElementsByClassName("totalValue")
+const numberOfExpenses = document.getElementById("numberOfExpenses")
 
 totalValue[0].textContent = calculateTotalExpense().toLocaleString("pt-br", {
             style: "currency",
@@ -23,17 +24,39 @@ expenseContainer.addEventListener('click', (event) => {
             style: "currency",
             currency: "BRL",
         })
+
+        numberOfExpenses.textContent = `Despesas: ${expenseContainer.querySelectorAll('li').length}`
     }
 })
 
 expenseSubmitButton.addEventListener('click', (event) => {
     event.preventDefault()
+    try {
+        if ( expenseCategorySelect.value === "Selecione" || expenseTitleInput.value === "" || expenseValueInput.value === "") {
+            throw new Error("Todos os campos devem ser preenchidos")
+        }
+    } catch (error) {
+        alert(error.message)
+        return
+    }
+    
+    try {
+        if (parseFloat(expenseValueInput.value) <= 0) {
+            throw new Error("O valor da despesa deve ser um numero maior que zero")
+        }
+    } catch (error) {
+        alert(error.message)
+        return
+    }
+
     const itemLi = createExpenseItem(expenseTitleInput.value, expenseCategorySelect.value, parseFloat(expenseValueInput.value));
     expenseContainer.appendChild(itemLi)
     totalValue[0].textContent = calculateTotalExpense().toLocaleString("pt-br", {
             style: "currency",
             currency: "BRL",
         })
+
+    numberOfExpenses.textContent = `Despesas: ${expenseContainer.querySelectorAll('li').length}`
 })
 
 function calculateTotalExpense(){
@@ -42,7 +65,6 @@ function calculateTotalExpense(){
     expenseItems.forEach(item => {
         sum += Number(item.outerText.replace(",","."));
     });
-    console.log(sum)
     return sum
 }
 
@@ -84,4 +106,3 @@ function createExpenseItem(title, category, value) {
     return itemLi
 }
 
-console.dir(expenseContainer)

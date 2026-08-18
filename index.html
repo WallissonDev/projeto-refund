@@ -30,7 +30,7 @@
                     <div class="optionContainer">
                         <label for="expense-category">Categoria</label>
                         <select id="expense-category" name="expense-category" required>
-                            <option value="">Selecione</option>
+                            <option value="Selecione">Selecione</option>
                             <option value="Alimentação">Alimentação</option>
                             <option value="Hospedagem">Hospedagem</option>
                             <option value="Alimentação">Alimentação</option>
@@ -54,7 +54,7 @@
         <div id="refund-calls">
             <header>
                 <h2>Minhas Solicitações</h2>
-                <small>Despesas</small>
+                <small id="numberOfExpenses">Despesas</small>
                 <p class="totalValue"></p>
             </header>
             <div></div>
@@ -67,7 +67,10 @@
                         <h3>Mensagem</h3>
                         <p>Alimentação</p>
                     </div>
-                    <p class="expenseValue">123</p>
+                    <p>
+                        R$
+                        <p class="expenseValue">123</p>
+                    </p>
                     <img src="assets/remove-button.svg" alt="" class="remove-button">
                 </li>
                 
@@ -77,7 +80,10 @@
                         <h3>Mensagem</h3>
                         <p>Hospedagem</p>
                     </div>
-                    <p class="expenseValue">123</p>
+                    <p>
+                        R$
+                        <p class="expenseValue">123</p>
+                    </p>
                     <img src="assets/remove-button.svg" alt="" class="remove-button">
                 </li>
 
